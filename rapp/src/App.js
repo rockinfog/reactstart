@@ -2,6 +2,38 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
+import Button from 'antd/lib/button';
+import { Cascader } from 'antd';
+
+
+const options = [{
+  value: 'zhejiang',
+  label: '浙江',
+  children: [{
+    value: 'hangzhou',
+    label: '杭州',
+    children: [{
+      value: 'xihu',
+      label: '西湖',
+    }],
+  }],
+}, {
+  value: 'jiangsu',
+  label: '江苏',
+  children: [{
+    value: 'nanjing',
+    label: '南京',
+    children: [{
+      value: 'zhonghuamen',
+      label: '中华门',
+    }],
+  }],
+}];
+
+function onChange(value) {
+  console.log(value);
+}
+
 
 class App extends Component {
   constructor(props) {
@@ -55,7 +87,7 @@ class App extends Component {
 
 
   handleSubmit(event) {
-    alert('Name:' + this.state.name +'Is Going:' + this.state.isGoing + 'Your favorite flavor is: ' + this.state.favorSite);
+    alert('Name:' + this.state.name +'  Is Going:' + this.state.isGoing + ' Your favorite flavor is: ' + this.state.favorSite);
     event.preventDefault();
   }
 
@@ -94,7 +126,9 @@ class App extends Component {
             <option value="fb">Facebook</option>
           </select>
         </label>
+        <Cascader options={options} onChange={onChange} />
         <input type="submit" value="提交" />
+        <Button type="primary">Button</Button>
       </form>
     );
   }
