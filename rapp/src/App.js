@@ -47,6 +47,7 @@ class App extends Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
 
+    console.log("name:"+name)
     this.setState({
       [name]: value
     });
@@ -86,7 +87,7 @@ class App extends Component {
           选择您最喜欢的网站
           <select
             name="favorSite"
-            defaultValue={this.state.favorSite} onChange={this.handleChange}>
+            value={this.state.favorSite} onChange={this.handleInputChange}>
             <option value="gg">Google</option>
             <option value="rn">Runoob</option>
             <option value="tb">Taobao</option>
