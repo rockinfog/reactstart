@@ -30,6 +30,12 @@ const options = [{
   }],
 }];
 
+
+const styleCascader = {
+  width:200
+};
+
+
 function onChange(value) {
   console.log(value);
 }
@@ -126,7 +132,7 @@ class App extends Component {
             <option value="fb">Facebook</option>
           </select>
         </label>
-        <Cascader options={options} onChange={onChange} />
+        <Cascader options={options} onChange={onChange}  style={styleCascader} />
         <input type="submit" value="提交" />
         <Button type="primary">Button</Button>
       </form>
